@@ -53,7 +53,7 @@ module.exports = function(grunt) {
             },
             options: {
                 watchTask: true,
-                proxy: "http://retailworkerconfessions.local/"
+                proxy: "http://gutenburgtest.local/"
             }
         }
     },
