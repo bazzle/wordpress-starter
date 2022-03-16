@@ -1,50 +1,24 @@
 // font loading
 
-@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
 
-// argesta
-@font-face {
-    font-family: 'argesta_display';
-    src: url('#{$path-fonts}/argestadisplay-regular-webfont.woff2') format('woff2'),
-         url('#{$path-fonts}/argestadisplay-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 
 // regular
-@font-face {
-    font-family: 'suisse_regular';
-    src: url('#{$path-fonts}/suisseintl-regular-webfont.woff2') format('woff2'),
-         url('#{$path-fonts}/suisseintl-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-// light
-@font-face {
-    font-family: 'suisse_light';
-    src: url('#{$path-fonts}/suisseintl-light-webfont.woff2') format('woff2'),
-         url('#{$path-fonts}/suisseintl-light-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-// bold
-@font-face {
-    font-family: 'suisse_bold';
-    src: url('#{$path-fonts}/suisseintl-bold-webfont.woff2') format('woff2'),
-         url('#{$path-fonts}/suisseintl-bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+// @font-face {
+//     font-family: 'suisse_regular';
+//     src: url('#{$path-fonts}/suisseintl-regular-webfont.woff2') format('woff2'),
+//          url('#{$path-fonts}/suisseintl-regular-webfont.woff') format('woff');
+//     font-weight: normal;
+//     font-style: normal;
+// }
 
 
 @mixin font-std{
-    font-family: 'suisse_regular', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 @mixin font-title{
-    font-family: 'argesta_display', serif;
+    ffont-family: 'Source Sans Pro', sans-serif;
 }
 
 // font-sizes;

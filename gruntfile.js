@@ -26,22 +26,15 @@ module.exports = function(grunt) {
       },
     },
     browserify: {
-      options: {
-        browserifyOptions: {
-          debug: true
+      default: {
+        src: 'assets/scripts/main.js',
+        dest: 'build/scripts/main.js',
+        options: {
+            browserifyOptions: { debug: true },
+            transform: [["babelify", { "presets": ["@babel/preset-env"] }]],
         }
-      },
-      production: {
-        files: [
-          {
-            'static/main.min.js': 'assets/js/main.js'
-          },
-          {
-            'static/editor.min.js': 'assets/js/editor.js'
-          }
-        ]
-      }
-    },
+    }
+  },
     browserSync: {
         dev: {
             bsFiles: {
