@@ -57,18 +57,6 @@ function the_field_without_wpautop( $field_name ) {
 }
 
 
-
-
-//Remove Gutenberg Block Library CSS from loading on the frontend
-
-function smartwp_remove_wp_block_library_css(){
-    wp_dequeue_style( 'wp-block-library' );
-    wp_dequeue_style( 'wp-block-library-theme' );
-    wp_dequeue_style( 'wc-block-style' ); // Remove WooCommerce block CSS
-} 
-add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css', 100 );
-
-
 // prevent auto p on images
 function filter_ptags_on_images($content){
     return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
@@ -82,34 +70,19 @@ remove_filter('term_description','wpautop');
 
 
 
-
-
-
-
-
 // Allows menu active states for CPT singles
 
 function add_current_nav_class($classes, $item) {
-
-	// Getting the current post details
+	
 	global $post;
-
-	// Get post ID, if nothing found set to NULL
 	$id = ( isset( $post->ID ) ? get_the_ID() : NULL );
-
-	// Checking if post ID exist...
 	if (isset( $id )){
-
-		// Getting the post type of the current post
+		
 		$current_post_type = get_post_type_object(get_post_type($post->ID));
-
-		// Getting the rewrite slug containing the post type's ancestors
+		
 		$ancestor_slug = $current_post_type->rewrite ? $current_post_type->rewrite['slug'] : '';
-
-		// Split the slug into an array of ancestors and then slice off the direct parent.
 		$ancestors = explode('/',$ancestor_slug);
-
-		// Pages have no rewrite base, so check for parent pages and populate array with all slugs of parents
+		
 		if ( $current_post_type->name == 'page'){
 			$ancestors = array();
 			foreach ( get_post_ancestors($post) as $ancestor ) {
@@ -118,36 +91,19 @@ function add_current_nav_class($classes, $item) {
 		}
 
 		$parent = array_pop($ancestors);
-
-		// Getting the URL of the menu item
 		$menu_slug = strtolower(trim($item->url));
-
-		// Remove domain from menu slug
 		$menu_slug = str_replace($_SERVER['SERVER_NAME'], "", $menu_slug);
-
-		// If the menu item URL contains the post type's parent
+		
 		if (!empty($menu_slug) && !empty($parent) && strpos($menu_slug,$parent) !== false) {
 			$classes[] = 'current-menu-item';
 		}
 
-		// If the menu item URL contains any of the post type's ancestors
 		foreach ( $ancestors as $ancestor ) {
 			if (!empty($menu_slug) && !empty($ancestor) && strpos($menu_slug,$ancestor) !== false) {
 				$classes[] = 'current-page-ancestor';
 			}
 		}
 	}
-	// Return the corrected set of classes to be added to the menu item
 	return $classes;
 }
 add_action('nav_menu_css_class', 'add_current_nav_class', 10, 2 );
-
-
-
-
-
-
-
-// Disable Gutenburg
-
-add_filter( 'use_block_editor_for_post', '__return_false' );

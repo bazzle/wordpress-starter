@@ -1,5 +1,6 @@
 <?php
 include 'functions/functions-main.php';
+include 'functions/functions-block-editor.php';
 include 'functions/functions-options-pages.php';
 include 'functions/functions-shortcodes.php';
 include 'functions/functions-cpt.php';
