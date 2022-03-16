@@ -1,0 +1,50 @@
+// Light (default)
+
+h1,
+h2,
+h3,
+h4,
+h5,
+ul,
+ol,
+p,
+i {
+  color: $color-text;
+}
+a{
+  color: $color-link;
+  text-decoration: none;
+  @include transition(all, 0.3s);
+}
+a:hover{
+  color: $color-hover;
+}
+
+
+// Dark
+
+@mixin component-dark {
+  color: $white;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  ul,
+  ol,
+  p,
+  i {
+    color: $white;
+  }
+  a{
+    color: $white;
+    text-decoration: underline;
+  }
+  a:hover{
+    color: $color-primary-feint;
+  }
+}
+
+.component-dark {
+  @include component-dark;
+}

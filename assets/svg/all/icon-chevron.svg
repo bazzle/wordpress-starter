@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="5px" height="7px" viewBox="0 0 5 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>arrow-up-small</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-315.000000, -117.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="arrow-up-small" transform="translate(317.500000, 120.500000) rotate(-270.000000) translate(-317.500000, -120.500000) translate(314.000000, 118.000000)">
+                <path d="M3.8323018,0.160834825 C3.62069274,-0.0536116084 3.30327916,-0.0536116084 3.0916701,0.160834825 L0.367179403,3.42161431 C0.155570347,3.63606074 -0.229266826,4.18067921 0.182056512,4.65691043 C0.59337985,5.13314164 1.01146113,5.03811472 1.22307018,4.82366829 L3.5,2.14890681 L5.77596251,4.65691043 C5.98757155,4.87135686 6.44517652,4.98292493 6.7888874,4.65691043 C7.13259828,4.33089592 7.00049645,3.63606074 6.7888874,3.42161431 L3.8323018,0.160834825 Z" id="Path"></path>
+            </g>
+        </g>
+    </g>
+</svg>

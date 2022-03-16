@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>profile</title>
+    <g id="profile" stroke="none" stroke-width="1" fill-rule="evenodd">
+        <g id="Group" transform="translate(4.000000, 2.000000)" fill-rule="nonzero">
+            <ellipse id="Oval" cx="9.20930233" cy="5.35294118" rx="5.44186047" ry="5.35294118"></ellipse>
+            <path d="M12.815822,12.7647059 C11.6810878,13.3483094 10.368356,13.6941485 8.98887515,13.6941485 C7.60939431,13.6941485 6.29666255,13.3483094 5.16192831,12.7647059 C2.29171817,12.9160105 0,15.1855797 0,18.0171376 L0,20.4380114 C0,20.7406207 0.244746601,21 0.578491965,21 L17.421508,21 C17.7330037,21 18,20.7622356 18,20.4380114 L18,18.0171376 C17.9777503,15.1855797 15.6860321,12.9160105 12.815822,12.7647059 Z" id="Path"></path>
+        </g>
+    </g>
+</svg>

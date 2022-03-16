@@ -1,0 +1,15 @@
+.homepage{
+    &__main{
+        .panel__inner{
+            @include panel-2col;
+        }
+    }
+    &__main{
+    }
+    &__main-col{
+        grid-area: block_1;
+    }
+    &__aside{
+        grid-area: block_2;
+    }
+}

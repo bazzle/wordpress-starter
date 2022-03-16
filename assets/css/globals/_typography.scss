@@ -1,0 +1,391 @@
+// font loading
+
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
+
+// argesta
+@font-face {
+    font-family: 'argesta_display';
+    src: url('#{$path-fonts}/argestadisplay-regular-webfont.woff2') format('woff2'),
+         url('#{$path-fonts}/argestadisplay-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// regular
+@font-face {
+    font-family: 'suisse_regular';
+    src: url('#{$path-fonts}/suisseintl-regular-webfont.woff2') format('woff2'),
+         url('#{$path-fonts}/suisseintl-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// light
+@font-face {
+    font-family: 'suisse_light';
+    src: url('#{$path-fonts}/suisseintl-light-webfont.woff2') format('woff2'),
+         url('#{$path-fonts}/suisseintl-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// bold
+@font-face {
+    font-family: 'suisse_bold';
+    src: url('#{$path-fonts}/suisseintl-bold-webfont.woff2') format('woff2'),
+         url('#{$path-fonts}/suisseintl-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@mixin font-std{
+    font-family: 'suisse_regular', sans-serif;
+}
+
+@mixin font-title{
+    font-family: 'argesta_display', serif;
+}
+
+// font-sizes;
+$font-size-base: 10px;
+$font-size-small:1.2rem;
+$font-size-regular: 1.4rem;
+$font-size-body-copy: 1.6rem;
+
+// line heights
+$line-height-regular: 1.4;
+
+@mixin text-background($color:$color-accent) {
+    display: inline;
+    background: linear-gradient(
+        to bottom,
+        rgba($color, 0) 49%,
+        rgba($color, 0.2) 50%,
+        rgba($color, 0.2) 100%
+    );
+}
+
+// GLOBAL FONTS ---------------------------------------------------------------------------------
+
+// Regular
+@mixin text-std{
+    font-size: 1.4rem;
+    font-weight: 500;
+    @include font-std;
+    font-size: $font-size-regular;
+}
+@mixin text-std-small{
+    font-size: 1.2rem;
+    font-weight: 480;
+    @include font-std;
+}
+
+
+
+// SPECIFIC FONTS -------------------------------------------------------------------------------
+
+// Slightly larger text for comfortable reading
+@mixin text-body{
+    @include font-std;
+    font-size:$font-size-body-copy;
+    line-height:1.8;
+    font-weight: 400;
+}
+
+@mixin text-body-large{
+    @include font-std;
+    font-size:1.8rem;
+    line-height:1.8;
+    font-weight: 400;
+}
+
+// Text for quotes
+@mixin text-quote{
+    @include font-std;
+    font-size:$font-size-body-copy;
+    line-height:1.8;
+    font-weight: 500;
+}
+
+// Large page title
+@mixin text-title-page{
+    
+    font-size: 3rem;
+    line-height: 1.2;
+    @include break(tablet) {
+        font-size: 4.3rem;
+    }
+    @include break-under(phone) {
+        word-break: break-word;
+    }
+}
+
+// Secondary page title
+@mixin text-title-secondary{
+    
+    font-size: 2.2rem;
+    @include break(tablet) {
+        font-size: 2.6rem;
+    }
+    @include break-under(phone) {
+        word-break: break-word;
+    }
+}
+
+// link styled
+@mixin link-styled{
+    
+    text-decoration: underline;
+    font-size: 1.4rem;
+    text-decoration-thickness: 0.2em;
+    text-decoration-color: $color-accent;
+    display: inline-block;
+    color: $color-link;
+    &:hover{
+        color: $color-hover;
+    }
+    .component-dark &{
+        color: $white;
+        &:hover{
+            color: $color-primary-feint;
+            text-decoration-color: $color-accent;
+        }
+    }
+}
+
+// link styled small
+@mixin link-styled-small{
+    
+    font-size: 1.2rem;
+    text-decoration: underline;
+    text-decoration-thickness: 0.2em;
+    text-decoration-color: $color-accent;
+    display: inline-block;
+    color: $color-link;
+    &:hover{
+        color: $color-hover;
+    }
+    .component-dark &{
+        color: $white;
+        &:hover{
+            color: $color-primary-feint;
+            text-decoration-color: $color-accent;
+        }
+    }
+}
+
+// link styled inline
+@mixin link-styled-inherit{
+    font: inherit;
+    font-weight: 700;
+    display: inline-block;
+    font-size: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 0.2em;
+    text-decoration-color: $color-accent;
+    color: $color-link;
+    &:hover{
+        color: $color-hover;
+    }
+    .component-dark &{
+        color: $white;
+        &:hover{
+            color: $color-primary-feint;
+            text-decoration-color: $color-accent;
+        }
+    }
+}
+
+// link styled body
+@mixin link-styled-body{
+    font: inherit;
+    font-weight: 500;
+    font-size: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 0.1em;
+    text-decoration-color: $color-accent;
+    color: $color-link;
+    &:hover{
+        color: $color-hover;
+    }
+    .component-dark &{
+        color: $white;
+        &:hover{
+            color: $color-primary-feint;
+            text-decoration-color: $color-accent;
+        }
+    }
+}
+
+// link styled inline
+@mixin link-styled-basic{
+    font-weight: 700;
+    display: inline-block;
+    font-size: inherit;
+    text-decoration: none;
+    color: $color-link;
+    &:hover{
+        color: $color-hover;
+    }
+    .component-dark &{
+        color: $white;
+        &:hover{
+            color: $color-primary-feint;
+        }
+    }
+}
+
+
+// Inline chevron
+
+@mixin chevron{
+    $width:7px;
+    $height:7px;
+    content: '';
+    display: inline-block;
+    width: $width;
+    height: $height;
+    background: url(#{$path-svg}/icon-chevron.svg);
+    background-repeat: no-repeat;
+    background-size: $width $height;
+    position: relative;
+}
+
+@mixin chevron-light{
+    $width:7px;
+    $height:7px;
+    content: '';
+    display: inline-block;
+    width: $width;
+    height: $height;
+    background: url(#{$path-svg}/icon-chevron-light.svg);
+    background-repeat: no-repeat;
+    background-size: $width $height;
+    position: relative;
+}
+
+
+// HTML/BODY =================================================================================================
+html {
+    font-size: $font-size-base;
+}
+body {
+    @include font-std;
+    font-size: $font-size-regular;
+    line-height: $line-height-regular;
+}
+
+// TEXT GAPS =================================================================================================
+
+@mixin text-gap {
+    margin-bottom: $gap-tight;
+    @include break(tablet) {
+        margin-bottom: $gap;
+    }
+}
+
+@mixin text-gap--tight {
+    margin-bottom: $gap-hairline;
+    @include break(tablet) {
+        margin-bottom: $gap-tight;
+    }
+}
+
+// TEXT BODY =================================================================================================
+
+// text body
+%text-body-format {
+    line-height: $line-height-regular;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    img,
+    p,
+    ul,
+    ol {
+        @include text-gap;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        position: relative;
+        bottom: 0.02em;
+    }
+    h1,
+    h2 {
+        font-size: 2.2rem;
+    }
+    h3 {
+        font-size: 1.8rem;
+    }
+    h4,
+    h5 {
+        font-size: 1.8rem;
+        color: inherit;
+    }
+    h2:target, h3:target, h4:target, h5:target{
+        display:block;
+        padding-top: calc($header-height + $gap);
+    }
+    p,
+    li {
+        @include text-body;
+    }
+    p,
+    ol,
+    ul,
+    .cite,
+    pre {
+        max-width: $sitewidth;
+    }
+    ul {
+        box-sizing: border-box;
+        li {
+            width: calc(100% - 1em);
+            list-style: none;
+            position: relative;
+            padding-left: 1em;
+            &:before {
+                content: "";
+                background-color: $color-accent;
+                position: absolute;
+                left: 0;
+                top: 1em;
+                font-size: 12px;
+                width: 5px;
+                height: 5px;
+            }
+        }
+    }
+    ol {
+        box-sizing: border-box;
+        li {
+            width: calc(100% - 1em);
+            margin-left: 1em;
+        }
+    }
+    & > *:last-child {
+        margin-bottom: 0;
+    }
+    pre {
+        background-color: $white;
+        padding: 1em;
+    }
+    p a, li a{
+        @include link-styled-body;
+    }
+}
+
+
+
+
+// TYPOGRAPHY UTILITES
+
+p.p_mb{
+    margin-bottom: 1em;
+}

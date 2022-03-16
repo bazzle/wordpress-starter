@@ -1,0 +1,25 @@
+/*! important comment
+Theme Name: Starter theme
+Author: Barry Richards
+Version: 0.1
+*/
+
+// external
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
+// globals
+@import 'globals/_reset';
+@import 'globals/_mixins-variables';
+@import 'globals/_breakpoints';
+@import 'globals/_color-schemes';
+@import 'globals/_typography';
+@import 'globals/_layout';
+@import 'globals/_global';
+@import 'globals/_buttons';
+@import 'globals/_wordpress';
+// components
+// templates
+@import 'templates/_homepage';
+@import 'templates/_page';
+// plugins
+// misc
+@import 'misc/_temp';

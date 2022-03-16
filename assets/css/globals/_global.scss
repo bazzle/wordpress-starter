@@ -1,0 +1,280 @@
+// SOME RESETS ===============================================
+
+a,
+button {
+  cursor: pointer;
+}
+
+input,
+button,
+textarea {
+  border: 0;
+  border-radius: 0;
+}
+
+// HTML/BODY COLOURS ================================================
+
+body {
+  background-color: $color-bg-main;
+  color: $color-text;
+}
+
+// ACCESSIBILITY ===============================================
+
+.skip-link {
+  z-index: 1000;
+  position: absolute;
+  top: $gap-tight;
+  left: $gap-tight;
+  padding: 0.5em;
+  background-color: $off-white;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  &:focus {
+    border: $focus_border;
+  }
+}
+
+// screen reader only
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+// MAIN LAYOUT =============================================================
+
+html,
+body {
+  width: 100%;
+  overflow-x:hidden;
+}
+
+body {
+  background-color: $color-primary;
+  &.locked {
+    height: 100vh;
+    overflow-y: hidden;
+  }
+}
+
+.header {
+  position: relative;
+}
+
+// main
+main {
+  min-height: 1000px;
+  position: relative;
+  background-color: $color-bg-alt;
+  padding-top:$header-height;
+  top: 0;
+  @include break(tablet) {
+    display: flex;
+    flex-direction: column;
+    .article{
+      flex-grow: 1;
+    }
+  }
+  .single &{
+    background-color: $color-bg-main;
+  }
+}
+
+footer {
+  flex-shrink: 0;
+}
+
+// scroll behaviour
+html {
+  scroll-behavior: smooth;
+}
+
+svg path {
+  fill: yellow !important;
+}
+
+%image-zoom {
+  overflow: hidden;
+  img {
+    transform: scale(1);
+    transition: 0.6s $fast-to-slow;
+  }
+  &:hover {
+    img {
+      transform: scale(1.05);
+    }
+  }
+}
+
+// GLOBAL MIXINS AND INCLUDES =====================================================================================
+
+// tagline
+.tagline,
+%tagline {
+  color: $color-tagline;
+  text-transform: uppercase;
+  display: block;
+  font-size: 0.8em;
+}
+
+@mixin raised-object{
+  border-radius: $border-radius;
+  box-shadow:$box-shadow;
+  overflow: hidden;
+  .component-dark &{
+    box-shadow:$box-shadow--black-bg;
+  }
+}
+
+// GLOBAL ELEMENTS AND CLASSES =====================================================================================
+
+// hidden/visible
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+}
+.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+p,
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+  line-height: $line-height-regular;
+}
+
+ul{
+  list-style: none;
+}
+
+// text highlight
+::selection {
+  background: $color-primary;
+  color: white;
+}
+
+// text no break
+.nobreak {
+  white-space: nowrap;
+}
+
+
+// LINES AND DIVIDERS ========================================================================
+
+@mixin embossed-line{
+  border-bottom: 1px solid #f8f8f8;
+  height: 2px;
+  background-color: #dedede;
+  .single &{
+    border-bottom: 1px solid white;
+    height: 2px;
+    background-color: #e7e7e7;
+  }
+}
+@mixin embossed-line-white-bg{
+  border-bottom: 1px solid white;
+  height: 2px;
+  background-color: #f3f3f3;
+}
+
+@mixin divider{
+  display: block;
+  @include embossed-line;
+  content: "";
+  flex-grow: 1;
+}
+@mixin divider-whitebg{
+  display: block;
+  @include embossed-line-white-bg;
+  content: "";
+  flex-grow: 1;
+}
+
+@mixin block-title{
+  display: flex;
+  margin-bottom: $gap-tight;
+  align-items: center;
+  gap: 1em;
+  &:after{
+    @include divider;
+    content: '';
+    flex-grow: 1;
+  }
+}
+@mixin block-title-large{
+  display: flex;
+  margin-bottom: $gap-tight;
+  align-items: center;
+  gap: 1em;
+  &:after{
+    @include divider;
+    content: '';
+    flex-grow: 1;
+  }
+}
+
+.block-title{
+  @include block-title;
+}
+
+// FORMS ========================================================================
+
+form {
+  input,
+  button,
+  textarea {
+    border: 1px solid $color-dark-gray;
+  }
+  input,
+  textarea {
+    padding: 0.8em;
+    border-radius: $border-radius;
+  }
+  label {
+    font-size: $font-size-regular;
+  }
+}
+
+// MISC ========================================================================
+
+code {
+  background-color: $off-black;
+  color: chartreuse;
+  margin-bottom: $gap;
+  padding: 1em;
+  display: block;
+}
+
+
+
+// UTILITIES =============================================================
+
+.gap-top{
+  margin-top:$gap;
+}
+.gap-top--padding{
+  padding-top:$gap;
+}
+
+.gap-bottom{
+  margin-bottom:$gap;
+}
+.gap-bottom--padding{
+  padding-bottom:$gap;
+}
+.gap-bottom--x2{
+  margin-bottom:$gap-deep;
+}
+.gap-bottom--2x--padding{
+  padding-bottom:$gap-deep;
+}

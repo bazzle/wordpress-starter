@@ -1,0 +1,318 @@
+// Project specific mixins and variables
+
+// paths
+$path-images: "../../assets/images";
+$path-svg: "../../assets/svg/all";
+$path-fonts: "../../assets/fonts";
+
+// Main sizes ==========================================
+
+$sidegap:20px;
+$thesitewidth:1400px;
+$sitewidth:calc(#{$thesitewidth} + #{$sidegap});
+$sitewidth--nosidegaps:$thesitewidth;
+$maincol-width:63.583333333333336%;
+$bodywidth: 763px;
+
+// colors ==============================================
+
+$black:#000000;
+$white: #ffffff;
+$off-white: #F6F6F6;
+$off-black: #141414;
+$color-dark-gray:#333333;
+$darken-overlay:rgba(black, .1);
+$white-darken:darken($white, 5);
+$black-lighten:lighten($black, 20);
+
+$color-primary:#395687;
+$color-primary-feint:lighten($color-primary, 40);
+$color-secondary:#3F00F0;
+$color-secondary-feint:lighten($color-secondary, 30);
+$color-accent:#e02f2f;
+
+$color-bg-off-white:$off-white;
+$color-bg-beige:#fffbf4;
+$color-bg-grey:#EFEFEF;
+$color-blue: #0091FF;
+
+$color-feint:#f2f2f2;
+$color-feint-1:#f2f2f2;
+$color-feint-2:#EBEBEB;
+$color-feint-3:#E3E3E3;
+$color-feint-4:#D4D4D4;
+
+// backgrounds
+$color-bg-header:$white;
+$color-bg-main:$color-bg-off-white;
+$color-bg-alt:#ededed;
+
+// Text color
+$color-text:$off-black;
+
+// link color
+$color-link:$color-primary;
+$color-hover:$color-primary;
+
+// button colour
+$color-button:$color-primary;
+
+// misc
+$color-tagline:$black;
+$color-selection:$color-accent;
+$color-focus:gold;
+
+// Some variables and mixins ======================
+
+// margins
+$gap-deep:6rem;
+$gap-thick:4rem;
+$gap:2rem;
+$gap-tight:1rem;
+$gap-hairline:.5rem;
+$gap-relative:1em;
+$gap-relative-tight:.4em;
+$gap-responsive:clamp(#{$gap-hairline}, 3vw, #{$gap});
+$gap-responsive-thick:clamp(#{$gap-tight}, 6vw, #{$gap-deep});
+$margin-std:1.5rem;
+
+
+// header ========================================
+
+$header-height:90px;
+$header-height-scroll:90px;
+
+// misc styles =========================================
+
+// focus
+$focus-border:1px solid $color-accent;
+
+// box and lines border lines
+$line: 4px solid $black;
+$line-feint:1px solid #DBDBDB;
+$line-feintest: 1px solid #F0F0F0;
+
+// text shadow
+$text-shadow: 0 2px 3px rgba($black, .3);
+$text-shadow-feint: 0 1px 2px rgba($black, .3);
+
+// raised item shadow
+$box-shadow:0px 1px 3px rgb(0 0 0 / 10%);
+$box-shadow--black-bg:0px 1px 3px rgb(0 0 0 / 50%);
+
+// borders
+$border-feint: rgba($black, 0.2) solid 1px;
+$border-accent: $color-secondary solid 2px;
+$border-accent-feint: rgba($color-secondary, 0.2) solid 1px;
+
+// border radius
+$border-radius: 2px;
+
+
+// ANIMATION =============================================================
+
+// fancy transitions
+$move-whip: cubic-bezier(0.8, 0, 0.3, 1);
+$move-snap: cubic-bezier(0.7, -0.5, 0.3, 1.5);
+$move-snap-in: cubic-bezier(0.6, -0.3, 0.7, 0);
+$move-snap-out: cubic-bezier(0.2, 0.9, 0.3, 1.3);
+$fast-to-slow: cubic-bezier(0.11, 0.71, 0.46, 0.91);
+
+@mixin transition($property: all, $speed: 0.2s, $anim: $move-whip) {
+  transition-property: $property;
+  transition-duration: $speed;
+  transition-timing-function: $anim;
+}
+
+// multiple arguments
+@mixin transitions($speed, $anim, $property...) {
+  transition-property: $property;
+  transition-duration: $speed;
+  transition-timing-function: $anim;
+}
+
+
+
+
+
+
+// make space for WP admin bar
+
+@mixin admin-bar($spacing:padding){
+  @if $spacing == margin{
+    .admin-bar &{
+      @media screen and (max-width: 782px){
+        margin-top:46px;
+      }
+      margin-top:32px;
+    }
+  }
+  @if $spacing == padding{
+    .admin-bar &{
+      @media screen and (max-width: 782px){
+        padding-top:46px;
+      }
+      padding-top:32px;
+    }
+  }
+}
+
+// Standard greyscale: number = brightness (HSB)
+$gray95: #F2F2F2;
+$gray90: #E6E6E6;
+$gray80: #CCCCCC;
+$gray70: #B3B3B3;
+$gray60: #999999;
+$gray50: #808080;
+$gray40: #666666;
+$gray30: #4D4D4D;
+$gray20: #333333;
+$gray10: #262626;
+
+// Social colors
+$color-dribbble: #EA4C89;
+$color-facebook: #4267b2;
+$color-flickr: #FF0084;
+$color-googleplus: #DD4B39;
+$color-instagram: #E4405F;
+$color-linkedin: #0077B5;
+$color-pinterest: #BD081C;
+$color-snapchat: #FFFC00;
+$color-soundcloud: #ff3300;
+$color-tumblr: #34465D;
+$color-twitter: #55ACEE;
+$color-vimeo: #1AB7EA;
+$color-whatsapp: #25D366;
+$color-youtube: #CD201F;
+
+// Aspect ratios
+$aspect_1-1: 100%;
+$aspect_16-9: 56.25%;
+$aspect_4-3: 75%;
+$aspect_3-2: 66.66%;
+$aspect_8-5: 62.5%;
+
+@mixin position-center{
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin align($yaxis:center, $xaxis:center ) {
+  display:flex;
+  @if $yaxis == top and $xaxis == left {
+    align-items:flex-start;
+    justify-content:flex-start;
+
+  } @else if $yaxis == top and $xaxis == center {
+    align-items:flex-start;
+    justify-content:center;
+
+  } @else if $yaxis == top and $xaxis == right {
+    align-items:flex-start;
+    justify-content:flex-end;
+
+  } @else if $yaxis == center and $xaxis == left {
+    align-items:center;
+    justify-content:flex-start;
+
+  } @else if $yaxis == center and $xaxis == center {
+    align-items:center;
+    justify-content:center;
+
+  } @else if $yaxis == center and $xaxis == right {
+    align-items:center;
+    justify-content:flex-end;
+
+  } @else if $yaxis == bottom and $xaxis == left {
+    align-items:flex-end;
+    justify-content:flex-start;
+
+  } @else if $yaxis == bottom and $xaxis == center {
+    align-items:flex-end;
+    justify-content:center;
+
+  } @else if $yaxis == bottom and $xaxis == right {
+    align-items:flex-end;
+    justify-content:flex-end;
+  }
+}
+
+// underline
+
+@mixin text-underline($color){
+  text-decoration: underline;
+  text-decoration-skip-ink: auto;
+  text-decoration-color: $color;
+}
+
+// Responsive header height
+
+@mixin header-height{
+  height:$header-height;
+}
+@mixin header-height-offset-top{
+  top:$header-height;
+}
+
+// Make image square
+
+@mixin image--square{
+  display: block;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  background: gold;
+  position: relative;
+  img{
+      position:absolute;
+      top:0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit:cover;
+  }
+}
+
+// Make image rectangle
+
+@mixin image--rect{
+  display: block;
+  width: 100%;
+  height: 0;
+  padding-bottom: 80%;
+  background: gold;
+  position: relative;
+  img{
+      position:absolute;
+      top:0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit:cover;
+  }
+}
+
+// Background image
+
+@mixin bgimage($filename, $ext){
+  background-image:url('#{$path-images}/#{$filename}.#{$ext}');
+  background-repeat:no-repeat;
+}
+
+// Double border
+
+@mixin double-border($top, $bottom){
+  border-bottom:1px solid $top;
+  position:relative;
+    &:after{
+      content:'';
+      width:100%;
+      height:1px;
+      background-color:$bottom;
+      display:block;
+      position:absolute;
+      bottom:0;
+      left:0;
+    }
+}

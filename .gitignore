@@ -1,0 +1,8 @@
+node_modules/
+.cpanel.yml
+/.vscode
+.DS_Store
+*.map
+.vscode
+*.lock
+*.log

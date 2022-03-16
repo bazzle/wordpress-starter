@@ -1,0 +1,70 @@
+// BUTTONS =====================================================================================
+  
+  @mixin btn-state($color, $textcolor) {
+    @include transition;
+    color: $textcolor;
+    background-color: $color;
+    &:hover {
+      color: $textcolor;
+      background-color: darken($color, 5);
+    }
+    &:active {
+      color: $textcolor;
+      background-color: darken($color, 5);
+    }
+  }
+
+  @mixin button-base{
+    cursor: pointer;
+    line-height: 1.4;
+    display: inline-flex;
+    width: auto;
+    text-align: center;
+    position: relative;
+    text-decoration: none !important;
+    border-radius: $border-radius;
+    font-size:1.2rem;
+  }
+  
+  @mixin button($color-button: $color-primary) {
+    @include button-base;
+    padding: .8em 1em;
+    @include break(phone) {
+      padding: 1em 1.3em;
+    }
+    @include btn-state($color-button, $white);
+  }
+
+  @mixin button-small($color-button: $color-primary) {
+    @include button-base;
+    font-size: 1rem;
+    padding: .8em 1em;
+    @include btn-state($color-button, $white);
+  }
+  
+  .button {
+    @include button;
+    &--alt {
+      background-color: $white;
+      color: $color-button;
+      @include btn-state($white, $color-secondary);
+    }
+    &--outline {
+      background-color: transparent;
+      color: $color-button;
+      border: $color-button 1px solid;
+      @include btn-state($color-button, $white);
+    }
+    // for buttons with lots of things inside that need to be aligned
+    &__inner {
+      width: 100%;
+      height: 100%;
+      @include align(center, center);
+    }
+    &--small {
+      @include text-std-small;
+      @include break(phone) {
+        padding: 0.8em 1em;
+      }
+    }
+  }

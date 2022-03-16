@@ -1,0 +1,103 @@
+.page{
+    &__header{
+        background-color: $color-bg-header;
+        &.panel{
+            @include panel--nopad;
+            padding-top: $gap-responsive;
+        }
+        &__title{
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: $gap-tight;
+        }
+        &__cat-description{
+            width: 100%;
+            margin-top: 0;
+            margin-bottom: 0;
+            display: block;
+            @include text-std;
+            @include break(medium) {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            a{
+                @include link-styled;
+            }
+        }
+        .panel__inner{
+            @include break(medium) {
+                @include grid;
+                grid-template-columns:1fr 1fr;
+                grid-auto-rows: auto;
+                grid-template-areas:
+                "block_1 block_2";
+            }
+        }
+        &__main{
+            grid-area: block_1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding-bottom: $gap;
+        }
+        &__side{
+            grid-area: block_2;
+        }
+    }
+    &__subcats{
+        margin-top: $gap-tight;
+        &__inner{
+            @include break(tablet){
+                display: flex;
+                align-items: baseline;
+            }
+        }
+        &__label{
+            margin-right:1em;
+            display: block;
+        }
+        &__item{
+            @include link-styled;
+            margin-right: $gap-tight;
+            padding: .5em 0;
+        }
+    }
+    &__main{
+        //background-color:$color-bg-alt;
+        .panel__inner{
+            @include panel-2col;
+        }
+    }
+    &__main-col{
+        grid-area: block_1;
+    }
+    &__aside{
+        grid-area: block_2;
+    }
+    &__cats{
+        @include align(center, left);
+        margin-bottom: $gap-tight;
+        &__cat{
+            border: 1px solid $color-accent;
+            padding: .5em 1.4em;
+            margin-right: 1.2em;
+            border-radius: 2px;
+            span{
+                position: relative;
+                top: 1px;
+            }
+        }
+    }
+    &__content-section{
+        display: block;
+        margin-bottom: $gap;
+    }
+    &__body{
+        @extend %text-body-format;
+        margin-bottom: $gap-deep;
+    }
+    &__footer{
+        background-color: white;
+        padding:6rem 0;
+    }
+}
